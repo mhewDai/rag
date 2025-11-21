@@ -1,0 +1,48 @@
+{
+  "ocr": {
+    "tesseract_cmd": "/usr/local/bin/tesseract",
+    "language": "eng",
+    "dpi": 300,
+    "preprocess": true,
+    "denoise": true,
+    "deskew": true,
+    "contrast_enhancement": true
+  },
+  "chunk": {
+    "chunk_size": 800,
+    "chunk_overlap": 100,
+    "strategy": "sentence-aware",
+    "min_chunk_size": 50
+  },
+  "rag": {
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "llm_model": "gpt-4",
+    "llm_temperature": 0.0,
+    "top_k_retrieval": 5,
+    "max_tokens": 1000,
+    "confidence_threshold": 0.5
+  },
+  "vector_store": {
+    "persist_directory": "./data/chroma",
+    "collection_name": "property_documents",
+    "distance_metric": "cosine"
+  },
+  "pipeline": {
+    "max_retries": 3,
+    "retry_delay": 1.0,
+    "exponential_backoff": true,
+    "batch_concurrency": 5,
+    "rate_limit_per_minute": 60,
+    "timeout": 300.0
+  },
+  "api": {
+    "openai_api_key": null,
+    "anthropic_api_key": null
+  },
+  "logging": {
+    "log_level": "INFO",
+    "log_file": "./logs/extraction.log",
+    "log_to_console": true,
+    "log_format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  }
+}

@@ -1,0 +1,33 @@
+# Core OCR dependencies
+pytesseract>=0.3.10
+pdf2image>=1.16.3
+Pillow>=10.0.0
+pypdf2>=3.0.0
+
+# Vector database
+chromadb>=0.4.0
+
+# LLM clients
+openai>=1.0.0
+anthropic>=0.7.0
+
+# RAG and evaluation
+ragas>=0.1.0
+langchain>=0.1.0
+langchain-openai>=0.0.2
+sentence-transformers>=2.2.0
+
+# Utilities
+numpy>=1.24.0
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+python-dotenv>=1.0.0
+tenacity>=8.2.0
+
+# Development dependencies
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+hypothesis>=6.92.0
+black>=23.0.0
+ruff>=0.1.0
+mypy>=1.7.0
