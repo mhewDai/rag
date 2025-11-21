@@ -5,13 +5,14 @@ extracted from property documents, including validation rules and extraction pro
 """
 
 from typing import Dict, List
+
 from src.models.feature_models import FeatureDefinition, ValidationRule
 
 
 def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
     """
     Create the complete schema for all property features.
-    
+
     Returns:
         Dictionary mapping feature names to their definitions
     """
@@ -37,7 +38,7 @@ def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
                 )
             ]
         ),
-        
+
         "property_address": FeatureDefinition(
             name="property_address",
             description="The full address of the property",
@@ -59,7 +60,7 @@ def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
                 )
             ]
         ),
-        
+
         "lot_size": FeatureDefinition(
             name="lot_size",
             description="The size of the lot in acres or square feet",
@@ -77,7 +78,7 @@ def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
                 )
             ]
         ),
-        
+
         "sale_price": FeatureDefinition(
             name="sale_price",
             description="The most recent sale price of the property",
@@ -99,7 +100,7 @@ def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
                 )
             ]
         ),
-        
+
         "sale_date": FeatureDefinition(
             name="sale_date",
             description="The date of the most recent sale",
@@ -117,7 +118,7 @@ def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
                 )
             ]
         ),
-        
+
         "property_type": FeatureDefinition(
             name="property_type",
             description="The type or classification of the property",
@@ -134,7 +135,7 @@ def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
                     rule_type="enum",
                     parameters={
                         "allowed_values": [
-                            "Residential", "Commercial", "Industrial", 
+                            "Residential", "Commercial", "Industrial",
                             "Agricultural", "Vacant Land", "Multi-Family",
                             "Mixed Use", "Other"
                         ],
@@ -143,7 +144,7 @@ def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
                 )
             ]
         ),
-        
+
         "bedrooms": FeatureDefinition(
             name="bedrooms",
             description="The number of bedrooms in the property",
@@ -165,7 +166,7 @@ def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
                 )
             ]
         ),
-        
+
         "bathrooms": FeatureDefinition(
             name="bathrooms",
             description="The number of bathrooms in the property",
@@ -187,7 +188,7 @@ def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
                 )
             ]
         ),
-        
+
         "year_built": FeatureDefinition(
             name="year_built",
             description="The year the property was built",
@@ -209,7 +210,7 @@ def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
                 )
             ]
         ),
-        
+
         "square_footage": FeatureDefinition(
             name="square_footage",
             description="The total square footage of the building",
@@ -231,7 +232,7 @@ def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
                 )
             ]
         ),
-        
+
         "tax_assessment_value": FeatureDefinition(
             name="tax_assessment_value",
             description="The assessed value for tax purposes",
@@ -253,7 +254,7 @@ def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
                 )
             ]
         ),
-        
+
         "annual_property_tax": FeatureDefinition(
             name="annual_property_tax",
             description="The annual property tax amount",
@@ -275,7 +276,7 @@ def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
                 )
             ]
         ),
-        
+
         "zoning_classification": FeatureDefinition(
             name="zoning_classification",
             description="The zoning classification or code",
@@ -293,7 +294,7 @@ def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
                 )
             ]
         ),
-        
+
         "parcel_id": FeatureDefinition(
             name="parcel_id",
             description="The unique parcel identification number",
@@ -311,7 +312,7 @@ def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
                 )
             ]
         ),
-        
+
         "legal_description": FeatureDefinition(
             name="legal_description",
             description="The legal description of the property",
@@ -330,7 +331,7 @@ def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
                 )
             ]
         ),
-        
+
         "previous_sale_price": FeatureDefinition(
             name="previous_sale_price",
             description="The previous sale price before the most recent sale",
@@ -352,7 +353,7 @@ def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
                 )
             ]
         ),
-        
+
         "previous_sale_date": FeatureDefinition(
             name="previous_sale_date",
             description="The date of the previous sale",
@@ -370,7 +371,7 @@ def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
                 )
             ]
         ),
-        
+
         "mortgage_amount": FeatureDefinition(
             name="mortgage_amount",
             description="The mortgage or loan amount",
@@ -392,7 +393,7 @@ def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
                 )
             ]
         ),
-        
+
         "deed_book_reference": FeatureDefinition(
             name="deed_book_reference",
             description="The deed book reference number",
@@ -410,7 +411,7 @@ def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
                 )
             ]
         ),
-        
+
         "page_number": FeatureDefinition(
             name="page_number",
             description="The page number in the deed book",
@@ -434,7 +435,7 @@ def create_property_feature_schema() -> Dict[str, FeatureDefinition]:
 def get_feature_names() -> List[str]:
     """
     Get a list of all property feature names.
-    
+
     Returns:
         List of feature names
     """
@@ -444,13 +445,13 @@ def get_feature_names() -> List[str]:
 def get_feature_definition(feature_name: str) -> FeatureDefinition:
     """
     Get the definition for a specific feature.
-    
+
     Args:
         feature_name: Name of the feature
-        
+
     Returns:
         FeatureDefinition for the specified feature
-        
+
     Raises:
         KeyError: If feature name is not found
     """
@@ -463,7 +464,7 @@ def get_feature_definition(feature_name: str) -> FeatureDefinition:
 def get_required_features() -> List[str]:
     """
     Get a list of required property feature names.
-    
+
     Returns:
         List of required feature names
     """
@@ -474,7 +475,7 @@ def get_required_features() -> List[str]:
 def get_optional_features() -> List[str]:
     """
     Get a list of optional property feature names.
-    
+
     Returns:
         List of optional feature names
     """

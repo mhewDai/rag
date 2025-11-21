@@ -2,11 +2,11 @@
 
 import json
 import os
-from pathlib import Path
-from typing import Optional, Dict, Any, List
+from enum import Enum
+from typing import Any, Dict, List, Optional
+
 from pydantic import BaseModel, Field, field_validator, model_validator
 from pydantic_settings import BaseSettings
-from enum import Enum
 
 
 class ConfigurationError(Exception):
@@ -59,10 +59,16 @@ class OCRConfig(BaseModel):
 class ChunkConfig(BaseModel):
     """Configuration for document chunking."""
 
-    chunk_size: int = Field(default=800, ge=100, le=2000, description="Maximum chunk size in tokens")
-    chunk_overlap: int = Field(default=100, ge=0, le=500, description="Overlap between chunks in tokens")
+    chunk_size: int = Field(
+        default=800, ge=100, le=2000, description="Maximum chunk size in tokens"
+    )
+    chunk_overlap: int = Field(
+        default=100, ge=0, le=500, description="Overlap between chunks in tokens"
+    )
     strategy: str = Field(default="sentence-aware", description="Chunking strategy")
-    min_chunk_size: int = Field(default=50, ge=10, description="Minimum chunk size in tokens")
+    min_chunk_size: int = Field(
+        default=50, ge=10, description="Minimum chunk size in tokens"
+    )
 
     @model_validator(mode="after")
     def validate_overlap(self) -> "ChunkConfig":
@@ -88,7 +94,9 @@ class RAGConfig(BaseModel):
     top_k_retrieval: int = Field(
         default=5, ge=1, le=20, description="Number of chunks to retrieve"
     )
-    max_tokens: int = Field(default=1000, ge=100, le=4000, description="Max tokens for LLM response")
+    max_tokens: int = Field(
+        default=1000, ge=100, le=4000, description="Max tokens for LLM response"
+    )
     confidence_threshold: float = Field(
         default=0.5, ge=0.0, le=1.0, description="Minimum confidence threshold"
     )
@@ -344,9 +352,10 @@ class ConfigurationManager:
             # Additional custom validations can be added here
 
             # Validate file paths exist
-            if not os.path.exists(os.path.dirname(self._settings.logging.log_file)):
+            log_dir = os.path.dirname(self._settings.logging.log_file)
+            if not os.path.exists(log_dir):
                 errors.append(
-                    f"Log directory does not exist: {os.path.dirname(self._settings.logging.log_file)}"
+                    f"Log directory does not exist: {log_dir}"
                 )
 
             # Validate vector store directory
