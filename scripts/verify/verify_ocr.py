@@ -32,7 +32,7 @@ def main():
         print(f"✓ Correctly raised InvalidPDFError: {e}")
     
     # Test with sample PDF if it exists
-    pdf_path = "monmouth_property.pdf"
+    pdf_path = "data/samples/monmouth_property.pdf"
     if Path(pdf_path).exists():
         print(f"\n✓ Found sample PDF: {pdf_path}")
         print("  Extracting text (this may take a moment)...")
