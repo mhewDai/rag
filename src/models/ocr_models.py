@@ -1,7 +1,7 @@
 """Data models for OCR processing."""
 
 from dataclasses import dataclass
-from typing import Dict, List, Any
+from typing import Any, Dict, List
 
 
 @dataclass

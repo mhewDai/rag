@@ -1,10 +1,11 @@
 """Data models for pipeline orchestration."""
 
 from dataclasses import dataclass
-from typing import List, Dict, Any
-from .feature_models import ExtractionResult
-from .evaluation_models import RAGASMetrics
+from typing import Any, Dict, List
+
 from .error_models import ErrorInfo
+from .evaluation_models import RAGASMetrics
+from .feature_models import ExtractionResult
 
 
 @dataclass
